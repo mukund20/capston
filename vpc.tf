@@ -12,19 +12,28 @@ module "vpc" {
   # NAT Gateways - Outbound Communication
   enable_nat_gateway = true
   single_nat_gateway = true
-  create_igw = true
-  
+  create_igw         = true
+
   public_subnet_tags = {
-    Name = "Public-Subnet"
-    kubernetes.io/cluster/deveks = "shared"
-    kubernetes.io/role/elb = 1
+    Name                           = "public-us-east-1a"
+    "kubernetes.io/cluster/deveks" = "shared"
+    "kubernetes.io/role/elb"       = 1
+
+    Name                           = "public-us-east-1b"
+    "kubernetes.io/cluster/deveks" = "shared"
+    "kubernetes.io/role/elb"       = 1
   }
 
   private_subnet_tags = {
-    Name = "Public-Subnet"
-    kubernetes.io/cluster/deveks = "shared"
-    kubernetes.io/role/elb = 1
+    Name                             = "private-us-east-1a"
+    "kubernetes.io/cluster/deveks"   = "shared"
+    "kubernetes.io/role/internalelb" = 1
+
+    Name                             = "private-us-east-1b"
+    "kubernetes.io/cluster/deveks"   = "shared"
+    "kubernetes.io/role/internalelb" = 1
   }
+
 
   tags = {
     Owner       = "mukund"
