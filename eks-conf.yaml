@@ -3,7 +3,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: deveks  #name of cluster
+  name: my-eks  #name of cluster
   region: us-east-1
   version: "1.20" # kubernetes version
 vpc: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/04-existing-vpc.yaml
@@ -87,7 +87,7 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     instancesDistribution:
       instanceTypes:
         - t2.medium
-    desiredCapacity: 0
+    desiredCapacity: 1
     minSize: 0
     maxSize: 1
     subnets:

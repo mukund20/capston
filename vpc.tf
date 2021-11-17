@@ -16,21 +16,21 @@ module "vpc" {
 
   public_subnet_tags = {
     Name                           = "public-us-east-1a"
-    "kubernetes.io/cluster/deveks" = "shared"
+    "kubernetes.io/cluster/my-eks" = "shared"
     "kubernetes.io/role/elb"       = 1
 
     Name                           = "public-us-east-1b"
-    "kubernetes.io/cluster/deveks" = "shared"
+    "kubernetes.io/cluster/my-eks" = "shared"
     "kubernetes.io/role/elb"       = 1
   }
 
   private_subnet_tags = {
     Name                             = "private-us-east-1a"
-    "kubernetes.io/cluster/deveks"   = "shared"
+    "kubernetes.io/cluster/my-eks"   = "shared"
     "kubernetes.io/role/internalelb" = 1
 
     Name                             = "private-us-east-1b"
-    "kubernetes.io/cluster/deveks"   = "shared"
+    "kubernetes.io/cluster/my-eks"   = "shared"
     "kubernetes.io/role/internalelb" = 1
   }
 
