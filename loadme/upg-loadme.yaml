@@ -20,7 +20,7 @@ spec:
       containers:
         - name: upg-loadme
           # update image id (manual or via jenkins)
-          image: '8261XXXXXXXX.dkr.ecr.us-east-1.amazonaws.com/shashank-upg-loadme:1'
+          image: 648505215893.dkr.ecr.us-east-1.amazonaws.com/devops-project-node-app
           # limiting cpu & mem usage of a pod
           resources:
             requests:
@@ -30,6 +30,11 @@ spec:
               cpu: 1000m
               memory: 400Mi
           imagePullPolicy: Always
+      tolerations:
+      - key: "feaster"
+        operator: Equal
+        value: "true"
+        effect: "NoSchedule"
       restartPolicy: Always
       terminationGracePeriodSeconds: 10
       dnsPolicy: ClusterFirst
