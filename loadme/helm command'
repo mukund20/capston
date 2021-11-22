@@ -1,7 +1,0 @@
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
-    --set clusterName=my-eks\
-    --set serviceAccount.create=false \
-    --set region=us-east-1 \
-    --set vpcId=vpc-0a1dd764f46bda735 \
-    --set serviceAccount.name=aws-load-balancer-controller \
-    -n demo

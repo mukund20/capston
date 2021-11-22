@@ -16,16 +16,15 @@ spec:
         app: redis
     spec:
       containers:
-      - image: redis:alpine
-        name: redis
+      - name: redis
+        image: redis
+        command:
+          - bash      
+          - "-c"
+          - "sleep 100000"
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 6379
-          name: redis
-        volumeMounts:
-        - name: my-pv
-          mountPath: /var/lib/redis
-      volumes:
-        - name: my-pv
-          persistentVolumeClaim:
-            claimName: data-volume
-        
+      restartPolicy: Always 
+
+    
