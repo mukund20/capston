@@ -8,7 +8,7 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/tags: CreatedBy=mukund
-    alb.ingress.kubernetes.io/subnets: subnet-073235bd28e94d11e, subnet-08f16371a682412cb # mention public subnets only if subnets not tagged for autodiscovery
+    alb.ingress.kubernetes.io/subnets: subnet-01b4496186214c3a8, subnet-04dab76cb4e4704d9 # mention public subnets only if subnets not tagged for autodiscovery
     alb.ingress.kubernetes.io/scheme: internet-facing
 spec:
   rules:
