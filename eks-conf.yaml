@@ -7,21 +7,21 @@ metadata:
   region: us-east-1
   version: "1.20" # kubernetes version
 vpc: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/04-existing-vpc.yaml
-  id: "vpc-0a1dd764f46bda735"
+  id: "vpc-02956a83e32722528"
   subnets:
     public:
       public-us-east-1a:
-        id: "subnet-08f16371a682412cb"
+        id: "subnet-01b4496186214c3a8"
         az: "us-east-1a"
       public-us-east-1b:
-        id: "subnet-073235bd28e94d11e"
+        id: "subnet-04dab76cb4e4704d9"
         az: "us-east-1b"
     private:
       private-us-east-1a:
-        id: "subnet-034648273ba14e175"
+        id: "subnet-0eefb1c39a54c1fda"
         az: "us-east-1a"
       private-us-east-1b:
-        id: "subnet-08010a353a8143e4a"
+        id: "subnet-0e9a1f81293b8bf56"
         az: "us-east-1b"
   clusterEndpoints:
     publicAccess:  true
@@ -78,7 +78,7 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     maxSize: 3
     privateNetworking: true # include only in private subnet
     subnets:
-      - subnet-034648273ba14e175 # 1 AZ is enough for testing
+      -  subnet-0eefb1c39a54c1fda # 1 AZ is enough for testing
 
   - name: ng3
     labels: { role: workers }
@@ -95,7 +95,7 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     maxSize: 5
     privateNetworking: true # include only in private subnet
     subnets:
-      - subnet-034648273ba14e175 # 1 AZ is enough for testing 
+      - subnet-0eefb1c39a54c1fda  # 1 AZ is enough for testing 
   - name: ng2
     labels: { role: workers }
     tags:
@@ -108,6 +108,6 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     minSize: 0
     maxSize: 1
     subnets:
-      - subnet-08f16371a682412cb
+      - subnet-01b4496186214c3a8
 
    
