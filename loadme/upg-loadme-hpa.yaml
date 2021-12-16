@@ -5,5 +5,23 @@ metadata:
   name: upg-loadme
   namespace: demo
 spec:
-  # Add hpa spec as per requirement
-  # Refer: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#creating-the-autoscaler-declaratively
+  replicas: 1
+    selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        command:
+          - bash      
+          - "-c"
+          - "sleep 100000"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 6379
+      restartPolicy: Always

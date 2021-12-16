@@ -11,17 +11,17 @@ vpc: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/04-existin
   subnets:
     public:
       public-us-east-1a:
-        id: "subnet-01b4496186214c3a8"
+        id: "subnet-006a684285afcdb30"
         az: "us-east-1a"
       public-us-east-1b:
-        id: "subnet-04dab76cb4e4704d9"
+        id: "subnet-0adc5c2d8065888c6"
         az: "us-east-1b"
     private:
       private-us-east-1a:
         id: "subnet-0eefb1c39a54c1fda"
         az: "us-east-1a"
       private-us-east-1b:
-        id: "subnet-0e9a1f81293b8bf56"
+        id: "subnet-02f73cdbd16eebb7d"
         az: "us-east-1b"
   clusterEndpoints:
     publicAccess:  true
@@ -80,22 +80,22 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     subnets:
       -  subnet-0eefb1c39a54c1fda # 1 AZ is enough for testing
 
-  - name: ng3
-    labels: { role: workers }
-    tags:
-      k8s.io/cluster-autoscaler/enabled: "true" # tag is needed for cluster autoscaler. Refer: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#auto-discovery-setup
-      k8s.io/cluster-autoscaler/my-eks-201: "shared" # cluster name tag is optional in latest versions of EKS
-    instancesDistribution:
-      instanceTypes:
-        - t2.medium
-    taints:
-      feaster: "true:NoSchedule"
-    desiredCapacity: 1
-    minSize: 0
-    maxSize: 5
-    privateNetworking: true # include only in private subnet
-    subnets:
-      - subnet-0eefb1c39a54c1fda  # 1 AZ is enough for testing 
+  # - name: ng3
+  #   labels: { role: workers }
+  #   tags:
+  #     k8s.io/cluster-autoscaler/enabled: "true" # tag is needed for cluster autoscaler. Refer: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md#auto-discovery-setup
+  #     k8s.io/cluster-autoscaler/my-eks-201: "shared" # cluster name tag is optional in latest versions of EKS
+  #   instancesDistribution:
+  #     instanceTypes:
+  #       - t2.medium
+  #   taints:
+  #     feaster: "true:NoSchedule"
+  #   desiredCapacity: 1
+  #   minSize: 0
+  #   maxSize: 5
+  #   privateNetworking: true # include only in private subnet
+  #   subnets:
+  #     - subnet-0eefb1c39a54c1fda  # 1 AZ is enough for testing 
   - name: ng2
     labels: { role: workers }
     tags:
@@ -108,6 +108,6 @@ nodeGroups: # Refer: https://github.com/weaveworks/eksctl/blob/main/examples/05-
     minSize: 0
     maxSize: 1
     subnets:
-      - subnet-01b4496186214c3a8
+      - subnet-006a684285afcdb30
 
    
